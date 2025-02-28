@@ -1,0 +1,249 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.3)),
+                url('images/back.png') center/cover fixed;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'El Messiri', sans-serif;
+}
+
+/* Main Container */
+.main-container {
+    padding-top: 8rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo */
+.logo {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo i {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #FFF;
+}
+
+.logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+    animation: moon-bounce 0.8s infinite alternate;
+}
+
+@keyframes moon-bounce {
+    from { transform: translateY(0) rotate(15deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+/* Plan Switcher */
+.plan-switcher {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.btn-plan {
+    background: rgba(255, 215, 0, 0.15);
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    border-radius: 30px;
+    padding: 0.8rem 2rem;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.btn-plan.active {
+    background: linear-gradient(45deg, #FFD700, #FFA000);
+    color: #2A1A3A;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Day Boxes */
+.day-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.day-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.day-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.day-box:hover::before {
+    left: 100%;
+}
+
+.day-header {
+    color: #FFD700;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 2rem 0;
+    backdrop-filter: blur(5px);
+}
+
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    height: 12px !important;
+}
+
+.progress-bar {
+    background: linear-gradient(45deg, #FFD700, #FFA000);
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Modal */
+.modal-content {
+    background: rgba(58, 28, 91, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 15px;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.modal-title {
+    color: #FFD700;
+    font-family: 'El Messiri';
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Footer */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.3rem;
+    color: #FFD700;
+    z-index: 3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding-top: 6rem;
+    }
+    
+    .btn-plan {
+        margin: 0.5rem;
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .day-box {
+        margin: 0.5rem 0;
+        padding: 1rem;
+    }
+    
+    .day-header {
+        font-size: 1.3rem;
+    }
+    
+    .site-footer {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        font-size: 1.4rem;
+        right: 20px;
+        top: 15px;
+    }
+    
+    .progress-text {
+        font-size: 0.9rem;
+    }
+}
+.day-header small {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.prayer-time h5 {
+    font-size: 1.1rem;
+    margin: 0.8rem 0;
+}
+
+.prayer-time span {
+    color: #FFD700;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.prayer-time span:hover {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+/* Better checkbox styling */
+.completion-check .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: transparent;
+    border: 2px solid #FFD700;
+}
+
+.completion-check .form-check-input:checked {
+    background-color: #FFD700;
+    border-color: #FFD700;
+}

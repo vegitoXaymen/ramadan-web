@@ -1,0 +1,193 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.3)),
+                url('images/back.png') center/cover fixed;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'El Messiri', sans-serif;
+}
+
+/* Main Container */
+.main-container {
+    padding-top: 8rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Logo */
+.logo {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo i {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #FFF;
+}
+
+.logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+    animation: moon-bounce 0.8s infinite alternate;
+}
+
+@keyframes moon-bounce {
+    from { transform: translateY(0) rotate(15deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+/* Feature Boxes */
+/* Feature Boxes */
+.feature-box {
+    display: block;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    height: 280px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keep all other CSS the same as in your original file */
+.feature-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.feature-box:hover::before {
+    left: 100%;
+}
+
+.box-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box-content h3 {
+    font-size: 2rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.box-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+.progress-container span {
+    font-size: 0.9rem;
+    color: #FFD700;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Footer */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.7rem;
+    color: #FFD700;
+    backdrop-filter: blur(2px);
+    z-index: 3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding-top: 6rem;
+    }
+    
+    .feature-box {
+        height: auto;
+        min-height: 250px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .box-content h3 {
+        font-size: 1.7rem;
+    }
+    
+    .box-content p {
+        font-size: 1rem;
+    }
+    
+    .site-footer {
+        font-size: 0.9rem;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .box-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .box-content p {
+        font-size: 0.95rem;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+        right: 20px;
+        top: 15px;
+    }
+}

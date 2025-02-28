@@ -1,0 +1,156 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.3)),
+                url('images/back.png') center/cover fixed;
+    height: 100vh;
+    color: #fff;
+    font-family: 'El Messiri', sans-serif;
+}
+
+/* Logo */
+.logo {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo i {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #FFF;
+}
+
+.logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+    animation: moon-bounce 0.8s infinite alternate;
+}
+
+@keyframes moon-bounce {
+    from { transform: translateY(0) rotate(15deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+/* Main Content */
+.welcome-container {
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.main-heading {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.sub-heading {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+/* CTA Button */
+.cta-button {
+    font-size: 1.5rem;
+    color: #fff !important;
+    background: linear-gradient(45deg, #FFD700, #FFA000);
+    border: none;
+    border-radius: 40px;
+    padding: 15px 40px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: -80%;
+    left: -80%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2),
+        transparent);
+    transform: rotate(45deg);
+    animation: button-glow 1.5s infinite;
+}
+
+@keyframes button-glow {
+    from { transform: translateX(-100%) rotate(45deg); }
+    to { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-heading {
+        font-size: 2.5rem;
+    }
+    
+    .sub-heading {
+        font-size: 1.3rem;
+    }
+    
+    .logo {
+        font-size: 1.4rem;
+        right: 20px;
+        top: 15px;
+    }
+    
+    .cta-button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+}
+/* Footer Styles */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-family: 'El Messiri', sans-serif;
+    font-size: 1.7rem;
+    color: #FFD700;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        transparent 100%);
+    backdrop-filter: blur(2px);
+    z-index: 3;
+}
+
+/* Add this media query */
+@media (max-width: 768px) {
+    .site-footer {
+        font-size: 0.9rem;
+        padding: 10px 0;
+    }
+}

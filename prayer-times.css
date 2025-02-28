@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgba(147, 112, 219, 0.3), rgba(147, 112, 219, 0.3)),
+                url('images/back.png') center/cover fixed;
+    min-height: 100vh;
+    color: #fff;
+    font-family: 'El Messiri', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.logo {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo i {
+    font-size: 1.4em;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #FFF;
+}
+
+.logo:hover i {
+    transform: rotate(15deg) scale(1.1);
+    animation: moon-bounce 0.8s infinite alternate;
+}
+
+@keyframes moon-bounce {
+    from { transform: translateY(0) rotate(15deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+.prayer-times-container {
+    display: flex;
+    flex-direction: row-reverse; /* ترتيب العناصر من اليمين لليسار */
+    gap: 1rem;
+    flex-wrap: nowrap;
+    justify-content: flex-end; /* التأكد أن العناصر تبدأ من اليمين */
+    margin-top: 20px;
+}
+
+.prayer-box {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 190px;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.prayer-box span {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.prayer-box:hover {
+    transform: translateY(-5px) scale(1.05); /* رفع خفيف وتكبير بسيط */
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3); /* توهج ذهبي */
+    background-color: rgba(255, 215, 0, 0.25); /* لون ذهبي شفاف */
+    border: 1px solid rgba(255, 215, 0, 0.5); /* حدود ذهبية ناعمة */
+    color: #fff; /* الحفاظ على وضوح النص */
+    transition: all 0.3s ease-in-out;
+}
+
+.prayer-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+}
+
+.prayer-time {
+    font-size: 1.5rem;
+}
+
+.prayer-countdown {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+#nextPrayer {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    backdrop-filter: blur(6px);
+    width: fit-content;
+    margin: 3rem auto 0; /* Centers the container and adds top margin */
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.7rem;
+    color: #FFD700;
+    backdrop-filter: blur(2px);
+    z-index: 3;
+}
+
+@media (max-width: 768px) {
+    .prayer-times-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .prayer-box {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .prayer-times-container {
+        flex-direction: row-reverse;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+
+    .prayer-box {
+        width: 190px;
+        padding: 1.5rem;
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1080px) and (max-width: 2400px) {
+    .prayer-times-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        justify-items: center;
+    }
+
+    .prayer-box {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1.7rem;
+    }
+}
+@media (max-width: 768px) {
+    .prayer-times-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+        gap: 0.8rem;
+    }
+
+    .prayer-box {
+        height: 180px;
+        padding: 1rem;
+    }
+
+    .prayer-name {
+        font-size: 1.1rem;
+    }
+
+    .prayer-time {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .prayer-times-container {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
